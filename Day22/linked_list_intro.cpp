@@ -4,7 +4,7 @@ Approach: Create nodes and traverse the list
 Time Complexity: O(n)
 Space Complexity: O(n)
 */
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 // Node structure
@@ -19,7 +19,14 @@ struct Node {
     }
 };
 
-// Function to insert at end
+// Function to insert at the beginning
+Node* insertAtBeginning(Node* head, int data) {
+    Node* newNode = new Node(data);
+    newNode->next = head;
+    return newNode;
+}
+
+// Function to insert at the end
 Node* insertAtEnd(Node* head, int data) {
     Node* newNode = new Node(data);
     
@@ -33,30 +40,6 @@ Node* insertAtEnd(Node* head, int data) {
     }
     temp->next = newNode;
     return head;
-}
-
-// Iterative approach to count nodes
-int countNodesIterative(Node* head) {
-    int count = 0;
-    Node* temp = head;
-    
-    while (temp != nullptr) {
-        count++;
-        temp = temp->next;
-    }
-    
-    return count;
-}
-
-// Recursive approach to count nodes
-int countNodesRecursive(Node* head) {
-    // Base case
-    if (head == nullptr) {
-        return 0;
-    }
-    
-    // Recursive case
-    return 1 + countNodesRecursive(head->next);
 }
 
 // Function to display the linked list
@@ -77,30 +60,50 @@ void display(Node* head) {
     cout << endl;
 }
 
+// Function to delete a node with given value
+Node* deleteNode(Node* head, int key) {
+    if (head == nullptr) return nullptr;
+    
+    // If head needs to be deleted
+    if (head->data == key) {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        return head;
+    }
+    
+    // Search for the node to be deleted
+    Node* temp = head;
+    while (temp->next != nullptr && temp->next->data != key) {
+        temp = temp->next;
+    }
+    
+    // If node found, delete it
+    if (temp->next != nullptr) {
+        Node* nodeToDelete = temp->next;
+        temp->next = temp->next->next;
+        delete nodeToDelete;
+    }
+    
+    return head;
+}
+
 int main() {
     Node* head = nullptr;
     
-    // Create a linked list
+    // Insert elements
     head = insertAtEnd(head, 10);
     head = insertAtEnd(head, 20);
     head = insertAtEnd(head, 30);
-    head = insertAtEnd(head, 40);
-    head = insertAtEnd(head, 50);
+    head = insertAtBeginning(head, 5);
     
     cout << "Linked List: ";
     display(head);
     
-    // Count nodes using iterative method
-    int count1 = countNodesIterative(head);
-    cout << "Number of nodes (Iterative): " << count1 << endl;
-    
-    // Count nodes using recursive method
-    int count2 = countNodesRecursive(head);
-    cout << "Number of nodes (Recursive): " << count2 << endl;
-    
-    // Test with empty list
-    Node* emptyList = nullptr;
-    cout << "\nEmpty list node count: " << countNodesIterative(emptyList) << endl;
+    // Delete a node
+    head = deleteNode(head, 20);
+    cout << "After deleting 20: ";
+    display(head);
     
     return 0;
 }
