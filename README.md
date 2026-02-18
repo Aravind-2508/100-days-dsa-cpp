@@ -2,7 +2,7 @@
 
 This repository documents my **100 Days of Data Structures & Algorithms challenge**,  
 where I solve **2 DSA problems every day** to build consistency, strong fundamentals,  
-and better problem-solving skills.
+and better problem-solving  skills.
 
 I am sharing my daily learning progress publicly on LinkedIn as part of this challenge.
 
