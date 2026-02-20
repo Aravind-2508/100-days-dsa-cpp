@@ -8,7 +8,7 @@ I am sharing my daily learning progress publicly on LinkedIn as part of this cha
 
 ---
 
-## 🚀 Challenge Details : 
+## 🚀 Challenge Details :  
 
 - 📅 Duration: 100 Days  
 - 🧠 Problems per day: 2  
