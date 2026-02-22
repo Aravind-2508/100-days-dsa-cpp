@@ -25,4 +25,4 @@ I am sharing my daily learning progress publicly on LinkedIn as part of this cha
 
 The repository is organized in **two ways** for better clarity and revision:
 
-### 🔹 Day-wise Structure (Daily Progress)
+### 🔹 Day-wise Structure (Daily Progress) 
